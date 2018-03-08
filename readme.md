@@ -42,6 +42,8 @@ That was my initial concern. When you start with the blank ML workbench project,
 ## Generating the schema 
 The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#2-create-a-schemajson-file) is the best resource I've found for understanding how to generate the score and schema files. 
 
+Create a schema to automatically validate the input and output of your web service. The CLIs also use the schema to generate a Swagger document for your web service.
+
 ## Creating a scoring.py file
 Instructions on how to do that are [here.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#3-create-a-scorepy-file)
 
@@ -107,6 +109,7 @@ Once your script is executed, you can see your plot as part of your run history 
 5. Azure HDInsight PySpark
 6. Azure HDInsight Python
 
+Any of the Azure options allow you to host this as a web service.
 
 ## Instructions for running the script from CLI window
 You can run your scripts from the Workbench app. However, we use the command-line window to watch the feedback in real time.
