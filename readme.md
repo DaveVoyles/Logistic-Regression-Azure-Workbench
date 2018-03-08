@@ -61,9 +61,9 @@ Along the way, I'm making use of both Python's default *print()* function, and a
 
 run_logger.log() will return text and graphs to ML Workbench, which is great for comparing runs.
 
-[ml-workbench-logger-1](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-1.png?raw=1)
+![ml-workbench-logger-1](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-1.png?raw=1)
 
-[ml-workbench-logger-2](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-2.png?raw=1)
+![ml-workbench-logger-2](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-2.png?raw=1)
 
 ## About the project
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
