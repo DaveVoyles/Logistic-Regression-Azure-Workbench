@@ -1,7 +1,7 @@
 # Simple Linear Regression With Azure ML Workbench
 
 ### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
-### URL: [www.DaveVoyles.com][http://www.davevoyles.com]
+### URL: [www.DaveVoyles.com](http://www.davevoyles.com)
 
 This sample creates a simple linear regression model form [Scikit-Learn Boston dataset.](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
 ----------
