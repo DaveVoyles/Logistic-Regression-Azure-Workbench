@@ -9,9 +9,9 @@ My goal with this was create a bare-bones example of how to deploy a model to Az
 
 ## Overview
 You'll need three (3) key **files** to deploy a model:
-1. Your model, saved as *model.pkl*
-2. A scoring script 
-3. *service_schema.json* for web-service input data
+ 1. Your model, saved as *model.pkl*
+ 2. A scoring script 
+ 3. *service_schema.json* for web-service input data
 
 This is explained in more detail in the [deploy a web service page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
 
@@ -38,27 +38,16 @@ The model.pkl, scoring file, and service_schema.json you'll need to create.
 
 That was my initial concern. When you start with the blank ML workbench project, you'll receive a folder marked *aml_config* with the config and compute dependencies you need to get a project working. The only thing you'll need to add to these are the specific libraries or dependencies your project will require. 
 
+
 ## Generating the schema 
-The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy) is the best resource I've found for understanding how to generate the score and schema files. 
+The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#2-create-a-schemajson-file) is the best resource I've found for understanding how to generate the score and schema files. 
 
-I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. 
+## Creating a scoring.py file
+Instructions on how to do that are [here.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#3-create-a-scorepy-file)
 
-#### I was able to do this by:
-1. Running the *iris.sklearn.py* file and setting the context to *local*
- - This will output a model.pkl file, which you can download, then place in the root directory of your current project
-2. Running the *score_iris.py* file locally from ML workbench
- - The scoring file uses the model.pkl we just placed in the root directory to create a *project_schema.json*
-3. Check the output section section for the *project_schema.json* file. Download and move that file to your root directory. 
+## Deployment
+This image from the [configuring azure ML experimentation service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration) page gave me a very good understanding of how my project would be deployed: ![experiment-execution-flow](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/experimentation-service-configuration/experiment-execution-flow.png)
 
-![az-ml-workbench-tut-1](https://www.dropbox.com/s/604es6640nid5fh/ml-workbench-tut-1.png?raw=1)
-
-The score_iris.py file generates the schema with this line:
-
-```  generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json') ```
-
-
-This image from the [configuring azure ML experimentation service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration) page gave me a very good understanding of how my project would be deployed:
-![experiment-execution-flow](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/experimentation-service-configuration/experiment-execution-flow.png)
 
 ## Logging & Printing output
 TODO
