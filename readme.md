@@ -7,6 +7,16 @@ This sample creates a simple linear regression model form [Scikit-Learn Boston d
 ----------
 My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. 
 
+## Overview
+You'll need three (3) key **files** to deploy a model:
+1. Your model, saved as *model.pkl*
+2. A scoring script 
+3. *schema.json* for web-service input data
+
+This is explained in more detail in the [Deploy a model tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+
+> To deploy the web service along with the model file, you also need a scoring script. Optionally, you need a schema for the web-service input data. The scoring script loads the model.pkl file from the current folder and uses it to produce a new result.
+
 ## The project
 
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
