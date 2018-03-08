@@ -1,6 +1,11 @@
-# Simple Linear Regression
+# Simple Linear Regression With Azure ML Workbench
 
-This sample creates a simple linear regression on one-dimensional data using a closed-form solution. 
+### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
+### URL: [www.DaveVoyles.com][1]
+
+
+This sample creates a simple linear regression model form [Scikit-Learn Boston dataset.](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
+
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
 
 Once your script is executed, you can see your plot as part of your run history in Azure ML Workbench by navigating to the **Runs** section in your project and clicking on your run. 
