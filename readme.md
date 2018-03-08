@@ -5,7 +5,7 @@
 
 This sample creates a simple linear regression model form [Scikit-Learn Boston dataset.](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
 ----------
-My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. Before going any further, I'd recommend reading the [conceptual overview of Azure ML model management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. Before going any further, I'd recommend reading the [conceptual overview of Azure ML model management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview). A glance at the [Key Concepts page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-general-concepts) will help as well. 
 
 ## Overview
 You'll need three (3) key **files** to deploy a model:
@@ -13,11 +13,9 @@ You'll need three (3) key **files** to deploy a model:
 2. A scoring script 
 3. *service_schema.json* for web-service input data
 
-This is explained in more detail in the [Deploy a model tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+This is explained in more detail in the [deploy a web service page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
 
-> To deploy the web service along with the model file, you also need a scoring script. Optionally, you need a schema for the web-service input data. The scoring script loads the model.pkl file from the current folder and uses it to produce a new result.
-
-The gist of it is this:
+To deploy the web service along with the model file, you also need a scoring script. Optionally, you need a schema for the web-service input data. The scoring script loads your model and returns the prediction result(s) using the model. It must include two functions: **init** and **run.**
 
 The model and the scoring file upload to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, and scoring file in it, and then pushes it to the Azure container registry.
 
@@ -28,7 +26,7 @@ The compute environment is based on Azure Container Services. Azure Container Se
 * Automatic scale-out
 * Encryption
 
-Azure Machine Learning model management uses the following information:
+**Azure Machine Learning model management uses the following information:**
 
 * Model file or a directory with the model files
 * User created Python file implementing a model scoring function
@@ -41,7 +39,12 @@ That was my initial concern. When you start with the blank ML workbench project,
 
 The model.pkl, scoring file, and service_schema.json you'll need to create.
 
-There currently isn't any information on how to generate this *service_schema.json* file, so I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. 
+## Generating the schema 
+
+The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy) is the best resource I've found for understanding how to generate the score and schema files. 
+
+TODO: Do I need this?
+I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. 
 
 #### I was able to do this by:
 
@@ -52,6 +55,11 @@ There currently isn't any information on how to generate this *service_schema.js
 3. Check the output section section for the *project_schema.json* file. Download and move that file to your root directory. 
 
 ![az-ml-workbench-tut-1](https://www.dropbox.com/s/604es6640nid5fh/ml-workbench-tut-1.png?raw=1)
+
+The score_iris.py file generates the schema with this line:
+
+```  generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json') ```
+
 
 This image from the [configuring azure ML experimentation service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration) page gave me a very good understanding of how my project would be deployed:
 ![experiment-execution-flow](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/experimentation-service-configuration/experiment-execution-flow.png)
@@ -120,8 +128,10 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 # Resources
 
 * [Model Management overview](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+* [Deploy a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)
 * [What's new in Azure ML? Ignite 2017 [VIDEO]]()
 * [Step-by-step instructions to deploy a model from ML workbench](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/#depl_link)
 * [VS Code extension - VS Code Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)
+
 
 
