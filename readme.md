@@ -53,7 +53,7 @@ There currently isn't any information on how to generate this *service_schema.js
 
 ![az-ml-workbench-tut-1](https://www.dropbox.com/s/604es6640nid5fh/ml-workbench-tut-1.png?raw=1)
 
-This image gave me a very good understanding of how my project would be deployed:
+This image from the [configuring azure ML experimentation service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration) page gave me a very good understanding of how my project would be deployed:
 ![experiment-execution-flow](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/experimentation-service-configuration/experiment-execution-flow.png)
 
 ## Logging & Printing output
