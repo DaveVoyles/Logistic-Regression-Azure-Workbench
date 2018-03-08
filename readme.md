@@ -50,7 +50,20 @@ This image from the [configuring azure ML experimentation service](https://docs.
 
 
 ## Logging & Printing output
-TODO
+At the top of *linear_reg.py* I've imported the two files required for logging:
+
+``` 
+from azureml.logging          import get_azureml_logger
+from azureml.dataprep.package import run
+```
+
+Along the way, I'm making use of both Python's default *print()* function, and also Azure's *run_logger.log()* function. Print() will return values to console, which makes your code easy to debug.
+
+run_logger.log() will return text and graphs to ML Workbench, which is great for comparing runs.
+
+[ml-workbench-logger-1](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-1.png?raw=1)
+
+[ml-workbench-logger-2](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-2.png?raw=1)
 
 ## About the project
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
