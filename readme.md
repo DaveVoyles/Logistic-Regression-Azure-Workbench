@@ -86,10 +86,12 @@ Once your script is executed, you can see your plot as part of your run history 
 
 ![](./docs/simplelrplot.png)
 
+# Running the app
+
 ## Instructions for running the script from CLI window
 You can run your scripts from the Workbench app. However, we use the command-line window to watch the feedback in real time.
 
-### Running your simple linear regression script locally
+## Running your simple linear regression script locally
 Open the command-line window by clicking on **File** --> **Open Command Prompt** and install the `matplotlib` using the following command.
 
 ```
@@ -102,7 +104,7 @@ Once matplotlib is installed, you can run the following command to run this samp
 $ az ml experiment submit -c local linear_reg.py
 ```
 
-### Running your linear regression script on local or remote Docker
+## Running your linear regression script on local or remote Docker
 If you have a Docker engine running locally, you can run `linear_reg.py` in a local docker container. Since Docker-based runs are managed by `conda_dependencies.yml` file, it needs to have a reference to the `matplotlib` library. This sample already has that reference. 
 
 ```
