@@ -5,19 +5,45 @@
 
 This sample creates a simple linear regression model form [Scikit-Learn Boston dataset.](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
 ----------
-My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. 
+My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. Before going any further, I'd recommend reading the [conceptual overview of Azure ML model management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
 
 ## Overview
 You'll need three (3) key **files** to deploy a model:
 1. Your model, saved as *model.pkl*
 2. A scoring script 
-3. *schema.json* for web-service input data
+3. *service_schema.json* for web-service input data
 
 This is explained in more detail in the [Deploy a model tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
 
 > To deploy the web service along with the model file, you also need a scoring script. Optionally, you need a schema for the web-service input data. The scoring script loads the model.pkl file from the current folder and uses it to produce a new result.
 
-## The project
+The gist of it is this:
+
+The model and the scoring file upload to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, and scoring file in it, and then pushes it to the Azure container registry.
+
+The compute environment is based on Azure Container Services. Azure Container Services provides automatic exposure of Machine Learning APIs as REST API endpoints with the following features:
+
+* Authentication
+* Load balancing
+* Automatic scale-out
+* Encryption
+
+Azure Machine Learning model management uses the following information:
+
+* Model file or a directory with the model files
+* User created Python file implementing a model scoring function
+* Conda dependency file listing runtime dependencies
+* Runtime environment choice (spark, python, etc) 
+* Schema file for API parameters
+
+## Do I need to make all of these things myself?
+That was my initial concern. When you start with the blank ML workbench project, you'll receive a folder marked *aml_config* with the config and compute dependencies you need to get a project working. The only thing you'll need to add to these are the specific libraries or dependencies your project will require. 
+
+The model.pkl, scoring file, and service_schema.json you'll need to create.
+
+There currently isn't any information on how to generate this *service_schema.json* file, so I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. I was able to do this by running the *score_iris.py* file locally from ML workbench, and the 
+
+## About the project
 
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
 
