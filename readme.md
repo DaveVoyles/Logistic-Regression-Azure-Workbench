@@ -51,7 +51,7 @@ I was able to do this by:
  - The scoring file uses the model.pkl we just placed in the root directory to create a *project_schema.json*
 3. Check the output section section for the *project_schema.json* file. Download and move that file to your root directory. 
 
-![az-ml-workbench-tut-1]()
+![az-ml-workbench-tut-1](https://www.dropbox.com/s/604es6640nid5fh/ml-workbench-tut-1.png?raw=1)
 
 ## Logging & Printing output
 TODO
