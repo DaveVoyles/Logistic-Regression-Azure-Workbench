@@ -1,10 +1,13 @@
 # Simple Linear Regression With Azure ML Workbench
 
 ### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
-### URL: [www.DaveVoyles.com][1]
-
+### URL: [www.DaveVoyles.com][http://www.davevoyles.com]
 
 This sample creates a simple linear regression model form [Scikit-Learn Boston dataset.](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
+----------
+My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. 
+
+## The project
 
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
 
@@ -60,4 +63,13 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 ```
 
 >Note: Your first execution on docker-based compute target automatically downloads a base Docker image. For that reason, it takes a few minutes before your job starts to run. Your environment is then cached to make subsequent runs faster. 
+
+
+# Resources
+
+* [Model Management overview](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+* [What's new in Azure ML? Ignite 2017 [VIDEO]]()
+* [Step-by-step instructions to deploy a model from ML workbench](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/#depl_link)
+* [VS Code extension - VS Code Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)
+
 
