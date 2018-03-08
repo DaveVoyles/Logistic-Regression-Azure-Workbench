@@ -45,6 +45,17 @@ The [model management overview page](https://docs.microsoft.com/en-us/azure/mach
 ## Creating a scoring.py file
 Instructions on how to do that are [here.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#3-create-a-scorepy-file)
 
+## Conda Dependencies
+The only thing I've added to the default *aml_config/conda_dependencies.yml* is *scikit-learn* to the dependencies section. 
+
+```
+dependencies:
+  # The python interpreter version.
+  # Currently Azure ML Workbench only supports 3.5.2.
+  - python=3.5.2
+  - matplotlib
+  - scikit-learn
+```
 
 ## Logging & Printing output
 At the top of *linear_reg.py* I've imported the two files required for logging:
@@ -144,6 +155,13 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 >Note: Your first execution on docker-based compute target automatically downloads a base Docker image. For that reason, it takes a few minutes before your job starts to run. Your environment is then cached to make subsequent runs faster. 
 
 ## Deploying your app as a remote web service
+1. Run the *linear_reg.py* file
+2. Open the **run** panel in workbench and download the model.pkl file
+3. Move the file to the root directory of this project
+4. Run the *score.py* file
+5. This generates our *service_schema.json* file
+
+Now we have all three requirements. 
 
 
 # Resources
