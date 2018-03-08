@@ -1,4 +1,5 @@
 # Simple Linear Regression With Azure ML Workbench
+<<<<<<< HEAD
 
 ### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
 ### URL: [www.DaveVoyles.com](http://www.davevoyles.com)
@@ -58,6 +59,89 @@ TODO
 
 ## About the project
 
+=======
+
+### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
+### URL: [www.DaveVoyles.com](http://www.davevoyles.com)
+
+This sample creates a simple linear regression model form [Scikit-Learn Boston dataset.](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
+----------
+My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. Before going any further, I'd recommend reading the [conceptual overview of Azure ML model management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview). A glance at the [Key Concepts page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-general-concepts) will help as well. 
+
+## Overview
+You'll need three (3) key **files** to deploy a model:
+ 1. Your model, saved as *model.pkl*
+ 2. A scoring script 
+ 3. *service_schema.json* for web-service input data
+
+This is explained in more detail in the [deploy a web service page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+
+To deploy the web service along with the model file, you also need a scoring script. Optionally, you need a schema for the web-service input data. The scoring script loads your model and returns the prediction result(s) using the model. It must include two functions: **init** and **run.**
+
+The model and the scoring file upload to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, and scoring file in it, and then pushes it to the Azure container registry.
+
+The compute environment is based on Azure Container Services. Azure Container Services provides automatic exposure of Machine Learning APIs as REST API endpoints with the following features:
+
+* Authentication
+* Load balancing
+* Automatic scale-out
+* Encryption
+
+**Azure Machine Learning model management uses the following information:**
+* Model file or a directory with the model files
+* User created Python file implementing a model scoring function
+* Conda dependency file listing runtime dependencies
+* Runtime environment choice (spark, python, etc) 
+* Schema file for API parameters
+
+## Do I need to make all of these things myself?
+The model.pkl, scoring file, and service_schema.json you'll need to create.
+
+That was my initial concern. When you start with the blank ML workbench project, you'll receive a folder marked *aml_config* with the config and compute dependencies you need to get a project working. The only thing you'll need to add to these are the specific libraries or dependencies your project will require. 
+
+
+## Generating the schema 
+The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#2-create-a-schemajson-file) is the best resource I've found for understanding how to generate the score and schema files. 
+
+## Creating a scoring.py file
+Instructions on how to do that are [here.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#3-create-a-scorepy-file)
+
+
+## Logging & Printing output
+At the top of *linear_reg.py* I've imported the two files required for logging:
+
+``` 
+from azureml.logging          import get_azureml_logger
+from azureml.dataprep.package import run
+```
+
+Along the way, I'm making use of both Python's default *print()* function, and also Azure's *run_logger.log()* function. Print() will return values to console, which makes your code easy to debug.
+
+run_logger.log() will return text and graphs to ML Workbench, which is great for comparing runs.
+
+The code used to generate the images below look like this:
+
+```
+print('MSE w/ TRAIN data: ',  mse_train)
+print('MSE w/ TEST data:  ',  mse_test )
+print('R-Square:           ', r_square )
+
+# These results will appear in the Run Properties: Output in ML Workbench
+run_logger.log('MSE w/ TRAIN data:', mse_train)
+run_logger.log('MSE w/ TEST data: ', mse_test )
+run_logger.log('R-Square:         ', r_square )
+```
+
+![ml-workbench-logger-1](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-1.png?raw=1)
+
+![ml-workbench-logger-2](https://www.dropbox.com/s/1ebv6k91egjouu4/ml-workbench-logger-2.png?raw=1)
+
+And I can output a scatter plot with:
+
+```plt.savefig("./outputs/scatter.png", bbox_inches='tight'      )```
+
+## About the project
+>>>>>>> fa4b0946fd7a464cbf2f14700137d18b782b7a96
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
 
 Once your script is executed, you can see your plot as part of your run history in Azure ML Workbench by navigating to the **Runs** section in your project and clicking on your run. 
@@ -117,8 +201,16 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 # Resources
 
 * [Model Management overview](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+<<<<<<< HEAD
+=======
+* [Deploy a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)
+>>>>>>> fa4b0946fd7a464cbf2f14700137d18b782b7a96
 * [What's new in Azure ML? Ignite 2017 [VIDEO]]()
 * [Step-by-step instructions to deploy a model from ML workbench](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/#depl_link)
 * [VS Code extension - VS Code Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa4b0946fd7a464cbf2f14700137d18b782b7a96
