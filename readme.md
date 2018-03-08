@@ -87,11 +87,18 @@ Once your script is executed, you can see your plot as part of your run history 
 ![](./docs/simplelrplot.png)
 
 # Running the app
+There are several ways we can run this app. 
+
+1. Locally
+2. Locally in a Docker container
+3. Remote VM
+4. Remove VM in a Docker container
+5. As a web service
 
 ## Instructions for running the script from CLI window
 You can run your scripts from the Workbench app. However, we use the command-line window to watch the feedback in real time.
 
-## Running your simple linear regression script locally
+## Running your linear regression script locally
 Open the command-line window by clicking on **File** --> **Open Command Prompt** and install the `matplotlib` using the following command.
 
 ```
@@ -134,12 +141,12 @@ You can use this command to create a compute target.
 ```
 $ az ml computetarget attach --name myvm --address <ip address or FQDN> --username <username> --password <pwd> --type remotedocker
 ```
-
 >Note: Your first execution on docker-based compute target automatically downloads a base Docker image. For that reason, it takes a few minutes before your job starts to run. Your environment is then cached to make subsequent runs faster. 
+
+## Deploying your app as a remote web service
 
 
 # Resources
-
 * [Model Management overview](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
 * [Deploy a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)
 * [What's new in Azure ML? Ignite 2017 [VIDEO]]()
