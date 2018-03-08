@@ -45,9 +45,6 @@ The [model management overview page](https://docs.microsoft.com/en-us/azure/mach
 ## Creating a scoring.py file
 Instructions on how to do that are [here.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#3-create-a-scorepy-file)
 
-## Deployment
-This image from the [configuring azure ML experimentation service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration) page gave me a very good understanding of how my project would be deployed: ![experiment-execution-flow](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/experimentation-service-configuration/experiment-execution-flow.png)
-
 
 ## Logging & Printing output
 At the top of *linear_reg.py* I've imported the two files required for logging:
@@ -64,6 +61,7 @@ run_logger.log() will return text and graphs to ML Workbench, which is great for
 ![ml-workbench-logger-1](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-1.png?raw=1)
 
 ![ml-workbench-logger-2](https://www.dropbox.com/s/1ebv6k91egjouu4/ml-workbench-logger-2.png?raw=1)
+
 
 ## About the project
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
