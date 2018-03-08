@@ -41,7 +41,20 @@ That was my initial concern. When you start with the blank ML workbench project,
 
 The model.pkl, scoring file, and service_schema.json you'll need to create.
 
-There currently isn't any information on how to generate this *service_schema.json* file, so I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. I was able to do this by running the *score_iris.py* file locally from ML workbench, and the 
+There currently isn't any information on how to generate this *service_schema.json* file, so I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. 
+
+I was able to do this by:
+
+1. Running the *iris.sklearn.py* file and setting the context to *local*
+ - This will output a model.pkl file, which you can download, then place in the root directory of your current project
+2. Running the *score_iris.py* file locally from ML workbench
+ - The scoring file uses the model.pkl we just placed in the root directory to create a *project_schema.json*
+3. Check the output section section for the *project_schema.json* file. Download and move that file to your root directory. 
+
+![az-ml-workbench-tut-1]()
+
+## Logging & Printing output
+TODO
 
 ## About the project
 
