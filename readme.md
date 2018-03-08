@@ -98,13 +98,15 @@ Once your script is executed, you can see your plot as part of your run history 
 ![](./docs/simplelrplot.png)
 
 # Running the app
-There are several ways we can run this app. 
+[There are several ways we can run this app.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-supported-runtime-data-environments) 
 
 1. Locally
 2. Locally in a Docker container
-3. Remote VM
-4. Remove VM in a Docker container
-5. As a web service
+3. Azure DSVM
+4. Azure in a Docker container
+5. Azure HDInsight PySpark
+6. Azure HDInsight Python
+
 
 ## Instructions for running the script from CLI window
 You can run your scripts from the Workbench app. However, we use the command-line window to watch the feedback in real time.
