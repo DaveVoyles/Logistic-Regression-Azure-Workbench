@@ -27,7 +27,6 @@ The compute environment is based on Azure Container Services. Azure Container Se
 * Encryption
 
 **Azure Machine Learning model management uses the following information:**
-
 * Model file or a directory with the model files
 * User created Python file implementing a model scoring function
 * Conda dependency file listing runtime dependencies
@@ -35,19 +34,16 @@ The compute environment is based on Azure Container Services. Azure Container Se
 * Schema file for API parameters
 
 ## Do I need to make all of these things myself?
-That was my initial concern. When you start with the blank ML workbench project, you'll receive a folder marked *aml_config* with the config and compute dependencies you need to get a project working. The only thing you'll need to add to these are the specific libraries or dependencies your project will require. 
-
 The model.pkl, scoring file, and service_schema.json you'll need to create.
 
-## Generating the schema 
+That was my initial concern. When you start with the blank ML workbench project, you'll receive a folder marked *aml_config* with the config and compute dependencies you need to get a project working. The only thing you'll need to add to these are the specific libraries or dependencies your project will require. 
 
+## Generating the schema 
 The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy) is the best resource I've found for understanding how to generate the score and schema files. 
 
-TODO: Do I need this?
 I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. 
 
 #### I was able to do this by:
-
 1. Running the *iris.sklearn.py* file and setting the context to *local*
  - This will output a model.pkl file, which you can download, then place in the root directory of your current project
 2. Running the *score_iris.py* file locally from ML workbench
@@ -68,7 +64,6 @@ This image from the [configuring azure ML experimentation service](https://docs.
 TODO
 
 ## About the project
-
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
 
 Once your script is executed, you can see your plot as part of your run history in Azure ML Workbench by navigating to the **Runs** section in your project and clicking on your run. 
