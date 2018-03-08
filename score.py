@@ -20,59 +20,42 @@ import os
 # Prepare the web service definition by authoring
 # init() and run() functions. Test the functions
 # before deploying the web service.
-def init():
-    global inputs_dc, prediction_dc
+def init():  
     from sklearn.externals import joblib
-
-    # load the model from file into a global object
-    global model
+    global model, inputs_dc, prediction_dc
+    # The model we created in our linear_reg.py file is now a model.pkl
     model = joblib.load('model.pkl')
+    inputs_dc     = ModelDataCollector('model.pkl', identifier="inputs"    )
+    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")
 
-    inputs_dc     = ModelDataCollector("model.pkl", identifier="inputs")
-    prediction_dc = ModelDataCollector("model.pkl", identifier="prediction")
 
+#  Uses the model and the input data to return a prediction
 def run(input_df):
-    import json
-    
-    # append 40 random features just like the training script does it.
-    import numpy as np
-    n = 40
-    random_state = np.random.RandomState(0)
-    n_samples, n_features = input_df.shape
-    input_df = np.c_[input_df, random_state.randn(n_samples, n)]
-    inputs_dc.collect(input_df)
+    global clf2, inputs_dc, prediction_dc
+    try:
+        prediction = model.predict(input_df)
+        # Archive model inputs and predictions from a web service. View the collected data from your storage account
+        # More info here: https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-model-data-collection
+        inputs_dc.collect    (input_df)
+        prediction_dc.collect(prediction)
+        return prediction
+    except Exception as e:
+        return (str(e))
 
-    # make prediction using the model
-    pred = model.predict(input_df)
-    prediction_dc.collect(pred)
-    
-    # return all predictions
-    # return json.dumps(pred.tolist())
-    
-    # return just the first prediction
-    return json.dumps(str(pred[0]))
 
+# Generate service_schema.json
 def main():
-  from azureml.api.schema.dataTypes        import DataTypes
-  from azureml.api.schema.sampleDefinition import SampleDefinition
-  from azureml.api.realtime.services       import generate_schema
-  import pandas
+    from azureml.api.schema.dataTypes        import DataTypes
+    from azureml.api.schema.sampleDefinition import SampleDefinition
+    from azureml.api.realtime.services       import generate_schema
+    import pandas
   
-  df = pandas.DataFrame(data=[[3.0, 3.6, 1.3, 0.25]], columns=['sepal length', 'sepal width','petal length','petal width'])
+    # Turn on data collection debug mode to view output in stdout
+    os.environ["AML_MODEL_DC_DEBUG"] = 'true'
 
-  # Turn on data collection debug mode to view output in stdout
-  os.environ["AML_MODEL_DC_DEBUG"] = 'true'
+    inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+    generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+    print("Schema generated")
 
-  # Test the output of the functions
-  init()
-  input1 = pandas.DataFrame([[3.0, 3.6, 1.3, 0.25]])
-  print("Result: " + run(input1))
-  
-  inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, df)}
-  
-  #Genereate the schema
-  generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
-  print("Schema generated")
-
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
