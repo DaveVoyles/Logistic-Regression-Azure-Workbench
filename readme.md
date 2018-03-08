@@ -42,7 +42,9 @@ That was my initial concern. When you start with the blank ML workbench project,
 ## Generating the schema 
 The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#2-create-a-schemajson-file) is the best resource I've found for understanding how to generate the score and schema files. 
 
-Create a schema to automatically validate the input and output of your web service. The CLIs also use the schema to generate a Swagger document for your web service.
+A schema will automatically validate the input and output of your web service. The CLIs also use the schema to generate a Swagger document for your web service.
+
+I've tried exporting it directly into the root directory, but it never actually gets saved. It seems that you must place it in the */output* folder, which will then appear in the in the **outputs** section of ML Workbench after each run. 
 
 ## Creating a scoring.py file
 Instructions on how to do that are [here.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#3-create-a-scorepy-file)
