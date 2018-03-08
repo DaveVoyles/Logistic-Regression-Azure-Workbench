@@ -58,10 +58,26 @@ Along the way, I'm making use of both Python's default *print()* function, and a
 
 run_logger.log() will return text and graphs to ML Workbench, which is great for comparing runs.
 
+The code used to generate the images below look like this:
+
+```
+print('MSE w/ TRAIN data: ',  mse_train)
+print('MSE w/ TEST data:  ',  mse_test )
+print('R-Square:           ', r_square )
+
+# These results will appear in the Run Properties: Output in ML Workbench
+run_logger.log('MSE w/ TRAIN data:', mse_train)
+run_logger.log('MSE w/ TEST data: ', mse_test )
+run_logger.log('R-Square:         ', r_square )
+```
+
 ![ml-workbench-logger-1](https://www.dropbox.com/s/5qpsj3d0aljukdt/ml-workbench-logger-1.png?raw=1)
 
 ![ml-workbench-logger-2](https://www.dropbox.com/s/1ebv6k91egjouu4/ml-workbench-logger-2.png?raw=1)
 
+And I can output a scatter plot with:
+
+```plt.savefig("./outputs/scatter.png", bbox_inches='tight'      )```
 
 ## About the project
 It shows how to use `matplotlib` to plot the data and the fitted line, and save a plot file (png format) to view it in the **Runs** view  in Azure Machine Learning Workbench.
