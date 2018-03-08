@@ -43,7 +43,7 @@ The model.pkl, scoring file, and service_schema.json you'll need to create.
 
 There currently isn't any information on how to generate this *service_schema.json* file, so I copied the *service_schema.json* from the [iris classification sample](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3#get-the-scoring-script-and-schema-files), but still have to make several changes to it. 
 
-I was able to do this by:
+#### I was able to do this by:
 
 1. Running the *iris.sklearn.py* file and setting the context to *local*
  - This will output a model.pkl file, which you can download, then place in the root directory of your current project
@@ -52,6 +52,9 @@ I was able to do this by:
 3. Check the output section section for the *project_schema.json* file. Download and move that file to your root directory. 
 
 ![az-ml-workbench-tut-1](https://www.dropbox.com/s/604es6640nid5fh/ml-workbench-tut-1.png?raw=1)
+
+This image gave me a very good understanding of how my project would be deployed:
+![experiment-execution-flow](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/experimentation-service-configuration/experiment-execution-flow.png)
 
 ## Logging & Printing output
 TODO
