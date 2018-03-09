@@ -3,7 +3,7 @@
 #### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
 #### URL: [www.DaveVoyles.com](http://www.davevoyles.com)
 
-This sample creates a simple linear regression model from [Scikit-Learn Boston dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html) hosts it in Azure as web service.
+This sample creates a simple linear regression model from [Scikit-Learn Boston dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html) and deploys to Azure as web service.
 ----------
 My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. 
 
