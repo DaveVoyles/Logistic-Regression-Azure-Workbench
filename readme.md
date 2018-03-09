@@ -201,6 +201,7 @@ There's a lot going on here, so take a look at this image to get a feel for what
 
 
 # Resources
+* [Operationalize your models with AML[VIDE]](https://www.youtube.com/watch?v=hsU2rUYYc4o)
 * [Model Management overview](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
 * [Deploy a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)
 * [What's new in Azure ML? Ignite 2017 [VIDEO]]()
