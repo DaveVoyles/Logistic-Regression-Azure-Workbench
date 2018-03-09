@@ -21,6 +21,10 @@ This is explained in more detail in the [deploy a web service page](https://docs
 
 To deploy the web service along with the model file, you also need a scoring script. Optionally, you need a schema for the web-service input data. The scoring script loads your model and returns the prediction result(s) using the model. It must include two functions: **init** and **run.**
 
+```generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service.schema.json)```
+
+You pass in your run function and an example of the input your model should expect, and it will generate a schema for you.
+
 The model and the scoring file upload to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, and scoring file in it, and then pushes it to the Azure container registry.
 
 The compute environment is based on Azure Container Services. Azure Container Services provides automatic exposure of Machine Learning APIs as REST API endpoints with the following features:
