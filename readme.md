@@ -170,6 +170,8 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 >Note: Your first execution on docker-based compute target automatically downloads a base Docker image. For that reason, it takes a few minutes before your job starts to run. Your environment is then cached to make subsequent runs faster. 
 
 ## Deploying your app as a remote web service
+
+### Local ML Workbench steps
 1. Run the *linear_reg.py* file
 2. Open the **run** panel in workbench and download the model.pkl file
 3. Move the file to the root directory of this project
@@ -201,7 +203,7 @@ There's a lot going on here, so take a look at this image to get a feel for what
 
 You can do all of that with these commands:
 
-### Local deployment
+#### Local deployment
 
 Create a resource group to keep all of this stored
 
@@ -220,7 +222,7 @@ You can set the new environment as your target context using:
 ```az ml env set -g dvmodelmgmt -n dvmodelmgmt```
 
 
-### Create a model management account
+#### Create a model management account
 
 Create a new account
 
