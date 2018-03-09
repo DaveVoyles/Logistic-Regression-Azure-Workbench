@@ -166,9 +166,14 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 2. Open the **run** panel in workbench and download the model.pkl file
 3. Move the file to the root directory of this project
 4. Run the *score.py* file
-5. This generates our *service_schema.json* file
+5. This generates our *service_schema.json* file in the outputs folder
+6. Move the file to the root directory of this project
 
 Now we have all three requirements. 
+
+There are several things you'll need to do before we can deploy this. Tee first is to [set up your Azure environemnt.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#environment-setup)
+
+Afterwards, follow this steps to [register your model.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model)
 
 
 # Resources
