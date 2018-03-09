@@ -187,6 +187,7 @@ There's a lot going on here, so take a look at this image to get a feel for what
 2. Create a [model management account.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#create-a-model-management-account) (green)
 
 3. [Register your model.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model)
+    * This will create a *manifest*, *image*, and *service*.
 
 
 # Resources
