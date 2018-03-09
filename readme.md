@@ -223,9 +223,16 @@ You can set the new environment as your target context using:
 ### Create a model management account
 
 Create a new account
+
 ```az ml account modelmanagement create -l  eastus2 -n dvmodelmgmt -g dvmodelmgmt --sku-instances 1 --sku-name  S1```
 
-You'll notice that I use the name *dvmodelmgmt* for my app name and resource group. I do that to keep it simple. You could have done this all through the web portal as well. You'll see that it worked for me, as I now have a resource group titled *dvmodelmgmt*. There also one with the same name followed by random digits. I never quite understand why that gets created though.
+Deploy the model as a web service:
+
+```az ml service create realtime --model-file model.pkl -f score.py -n dvmodelmgmt -s  service_schema -r python -c ./aml_config/conda_dependencies.yml```
+
+**NOTE:** I removed .json from the service_schema name, otherwise the CLI will throw an error
+
+You'll notice that I use the name *dvmodelmgmt* for both my app name **and** resource group. I do that to keep it simple. Alternatively, you could have done this all through the web portal. You'll see that it worked for me, as I now have a resource group titled *dvmodelmgmt*. There also one with the same name followed by random digits. I never quite understand why that gets created though.
 
 ![aml-resource-groups-portal](https://www.dropbox.com/s/9e28i0u04bcjfe2/aml-resource-groups-portal.png?raw=1)
 ![aml-workbench-portal-resource-group](https://www.dropbox.com/s/82jiesitauauqry/aml-workbench-portal-resource-group.png?raw=1)
