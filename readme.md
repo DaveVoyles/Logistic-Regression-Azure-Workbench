@@ -5,7 +5,11 @@
 
 This sample creates a simple linear regression model from [Scikit-Learn Boston dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html) hosts it in Azure as web service.
 ----------
-My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. Before going any further, I'd recommend reading the [conceptual overview of Azure ML model management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview). A glance at the [Key Concepts page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-general-concepts) will help as well. 
+My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. 
+
+Before going any further, I'd recommend watching this video, [operationalize your models with AML](https://www.youtube.com/watch?v=hsU2rUYYc4o). This will walk you through nearly every step of the work below.
+
+Then read the [conceptual overview of Azure ML model management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview). A glance at the [Key Concepts page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-general-concepts) will help as well. 
 
 ## Overview
 You'll need three (3) key **files** to deploy a model:
