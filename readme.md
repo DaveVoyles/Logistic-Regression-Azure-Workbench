@@ -169,9 +169,13 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 5. This generates our *service_schema.json* file in the outputs folder
 6. Move the file to the root directory of this project
 
-Now we have all three requirements. 
+Now we have all three required files.
+
+### Azure Steps
 
 There are several things you'll need to do before we can deploy this. Tee first is to [set up your Azure environemnt.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#environment-setup)
+
+Then set up a [model management account.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#create-a-model-management-account)
 
 Afterwards, follow this steps to [register your model.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model)
 
