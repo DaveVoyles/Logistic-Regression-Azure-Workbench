@@ -199,6 +199,37 @@ There's a lot going on here, so take a look at this image to get a feel for what
 3. [Deploy it as a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model) (yellow)
     * This will create a *manifest*, *image*, and *service*.
 
+You can do all of that with these commands:
+
+### Local deployment
+
+Create a resource group to keep all of this stored
+```az group create -l eastus2 -n dvmodelmgmt```
+
+Local Deployment
+```az ml env setup -l eastus2 -n dvmodelmgmt -g dvmodelmgmt```
+
+To see more information for your environment, run:
+```az ml env show -g dvmodelmgmt -n dvmodelmgmt```
+
+You can set the new environment as your target context using:
+```az ml env set -g dvmodelmgmt -n dvmodelmgmt```
+
+
+### Create a model management account
+
+Create a new account
+```az ml account modelmanagement create -l  eastus2 -n dvmodelmgmt -g dvmodelmgmt --sku-instances 1 --sku-name  S1```
+
+You'll notice that I use the name *dvmodelmgmt* for my app name and resource group. I do that to keep it simple. You could have done this all through the web portal as well. You'll see that it worked for me, as I now have a resource group titled *dvmodelmgmt*. There also one with the same name followed by random digits. I never quite understand why that gets created though.
+
+![aml-resource-groups-portal](https://www.dropbox.com/s/9e28i0u04bcjfe2/aml-resource-groups-portal.png?raw=1)
+![aml-workbench-portal-resource-group](https://www.dropbox.com/s/82jiesitauauqry/aml-workbench-portal-resource-group.png?dl=0)
+
+If all of your commands went through, you should see this in the console:
+
+1[aml-workbench-web-deploy-success](https://www.dropbox.com/s/2py4lmd1pkpsdf9/aml-workbench-web-deploy-success.png?raw=1)
+
 
 # Resources
 * [Operationalize your models with AML[VIDEO]](https://www.youtube.com/watch?v=hsU2rUYYc4o)
