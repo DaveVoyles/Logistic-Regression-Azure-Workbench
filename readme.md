@@ -204,15 +204,19 @@ You can do all of that with these commands:
 ### Local deployment
 
 Create a resource group to keep all of this stored
+
 ```az group create -l eastus2 -n dvmodelmgmt```
 
-Local Deployment
+Local Deployment, using the newly created resource group:
+
 ```az ml env setup -l eastus2 -n dvmodelmgmt -g dvmodelmgmt```
 
 To see more information for your environment, run:
+
 ```az ml env show -g dvmodelmgmt -n dvmodelmgmt```
 
 You can set the new environment as your target context using:
+
 ```az ml env set -g dvmodelmgmt -n dvmodelmgmt```
 
 
