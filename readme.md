@@ -169,7 +169,13 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 5. This generates our *service_schema.json* file in the outputs folder
 6. Move the file to the root directory of this project
 
-Now we have all three required files.
+Now we have all three required files, and your directory should look like this:
+
+* LinearRegression
+    * model.pkl
+    * score.py
+    * service_schema.json
+    * ....All-other-files
 
 ### Azure Steps
 
