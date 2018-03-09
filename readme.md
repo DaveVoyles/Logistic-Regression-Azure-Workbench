@@ -178,15 +178,15 @@ Now we have all three required files, and your directory should look like this:
     * ....All-other-files
 
 ### Azure Steps
-There's a lot going on here, so take a look at this image to get a feel for what we are about to do:
+There's a lot going on here, so take a look at this image to get a feel for what we are about to do. We have several things you'll need to do before we can deploy this: 
 
 ![overview-general-concepts](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/overview-general-concepts/hierarchy.png)
 
-We have several things you'll need to do before we can deploy this. Tee first is to [set up your Azure environemnt.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#environment-setup)
+1. [Set up your Azure environemnt.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#environment-setup)
 
-Then set up a [model management account.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#create-a-model-management-account)
+2. Create a [model management account.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#create-a-model-management-account)
 
-Afterwards, follow this steps to [register your model.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model)
+3. [Register your model.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model)
 
 
 # Resources
