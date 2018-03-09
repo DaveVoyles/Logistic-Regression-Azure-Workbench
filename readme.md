@@ -178,15 +178,17 @@ Now we have all three required files, and your directory should look like this:
     * ....All-other-files
 
 ### Azure Steps
-There's a lot going on here, so take a look at this image to get a feel for what we are about to do. We have several things you'll need to do before we can deploy this: 
+There's a lot going on here, so take a look at this image to get a feel for what we are about to do, as we'll be working from left to right. We have several things you'll need to do before we can deploy this: 
 
 ![overview-general-concepts](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/overview-general-concepts/hierarchy.png)
 
 1. [Set up your experimentation account.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#environment-setup) (orange)
+    * This is everything involved with the actual code behind our model.
 
 2. Create a [model management account.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#create-a-model-management-account) (green)
+    *  You need to do this once per subscription, and can reuse the same account in multiple deployments.
 
-3. [Register your model.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model)
+3. [Deploy it as a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model) (yellow)
     * This will create a *manifest*, *image*, and *service*.
 
 
