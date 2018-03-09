@@ -224,11 +224,11 @@ Create a new account
 You'll notice that I use the name *dvmodelmgmt* for my app name and resource group. I do that to keep it simple. You could have done this all through the web portal as well. You'll see that it worked for me, as I now have a resource group titled *dvmodelmgmt*. There also one with the same name followed by random digits. I never quite understand why that gets created though.
 
 ![aml-resource-groups-portal](https://www.dropbox.com/s/9e28i0u04bcjfe2/aml-resource-groups-portal.png?raw=1)
-![aml-workbench-portal-resource-group](https://www.dropbox.com/s/82jiesitauauqry/aml-workbench-portal-resource-group.png?dl=0)
+![aml-workbench-portal-resource-group](https://www.dropbox.com/s/82jiesitauauqry/aml-workbench-portal-resource-group.png?raw=1)
 
 If all of your commands went through, you should see this in the console:
 
-1[aml-workbench-web-deploy-success](https://www.dropbox.com/s/2py4lmd1pkpsdf9/aml-workbench-web-deploy-success.png?raw=1)
+![aml-workbench-web-deploy-success](https://www.dropbox.com/s/2py4lmd1pkpsdf9/aml-workbench-web-deploy-success.png?raw=1)
 
 
 # Resources
