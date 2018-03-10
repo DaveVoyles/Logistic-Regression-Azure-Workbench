@@ -182,9 +182,10 @@ $ az ml computetarget attach --name myvm --address <ip address or FQDN> --userna
 ```
 >Note: Your first execution on docker-based compute target automatically downloads a base Docker image. For that reason, it takes a few minutes before your job starts to run. Your environment is then cached to make subsequent runs faster. 
 
-## Deploying your app as a remote web service
+## Deploying your app as a (local) web service
+This part can be confusing, because the terminology is a bit mixed here. It looks like we're doing a lot with Azure and the CLI, but in reality we setting up our *local* environment for testing, building, and deploying models. So in the end, this will give us a *localhost* endpoint to preview how our model would work, should we deploy it to Azure.  
 
-### Local ML Workbench steps
+### ML Workbench steps
 1. Run the *linear_reg.py* file
 2. Open the **run** panel in workbench and download the model.pkl file
 3. Move the file to the root directory of this project
@@ -200,8 +201,8 @@ Now we have all three required files, and your directory should look like this:
     * service_schema.json
     * ....All-other-files
 
-### Azure Steps
-There's a lot going on here, so take a look at this image to get a feel for what we are about to do, as we'll be working from left to right. We have several things you'll need to do before we can deploy this: 
+### Environment Prep Steps
+There's a lot going on here, so take a look at this image to get a feel for what we are about to do, as we'll be working from left to right. We have several things you'll need to do before we can deploy (create an endpoint): 
 
 ![overview-general-concepts](https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/overview-general-concepts/hierarchy.png)
 
@@ -223,7 +224,7 @@ Deploy the model as a web service:
 
 Alternatively, if you wanted to do it piece-by-piece, here is how:
 
-#### Local deployment
+#### Create an environment
 
 Create a resource group to keep all of this stored
 
@@ -244,11 +245,11 @@ You can set the new environment as your target context using:
 
 #### Create a model management account
 
-Create a new account
+Create a new model management account
 
 ```az ml account modelmanagement create -l  eastus2 -n dvmodelmgmt -g dvmodelmgmt --sku-instances 1 --sku-name  S1```
 
-Deploy the model as a web service (locally, for tetsing):
+Deploy the model as a web service (locally, for tetsing from *localhost*):
 
 **NOTE:** I removed *.json* extension from the service_schema.json, otherwise the CLI will throw an error.
 
