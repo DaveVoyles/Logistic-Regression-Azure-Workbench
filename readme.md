@@ -263,5 +263,6 @@ If all of your commands went through, you should see this in the console:
 * [What's new in Azure ML? Ignite 2017 [VIDEO]]()
 * [Step-by-step instructions to deploy a model from ML workbench](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/#depl_link)
 * [VS Code extension - VS Code Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)
+* [What is Azure ML? - FAQ](https://docs.microsoft.com/en-us/azure/machine-learning/preview/frequently-asked-questions)
 
 
