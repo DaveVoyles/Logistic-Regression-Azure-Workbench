@@ -236,7 +236,8 @@ Create a new account
 ```az ml account modelmanagement create -l  eastus2 -n dvmodelmgmt -g dvmodelmgmt --sku-instances 1 --sku-name  S1```
 
 Deploy the model as a web service (locally, for tetsing):
-**NOTE:** I removed .json from the service_schema name, otherwise the CLI will throw an error
+
+**NOTE:** I removed *.json* extension from the service_schema.json, otherwise the CLI will throw an error.
 
 ```az ml service create realtime --model-file model.pkl -f score.py -n dvmodelmgmt -s  service_schema -r python -c ./aml_config/conda_dependencies.yml```
 
