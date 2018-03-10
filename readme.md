@@ -34,6 +34,19 @@ The compute environment is based on Azure Container Services. Azure Container Se
 * Automatic scale-out
 * Encryption
 
+
+**What is a "managed model?"**
+
+A model is the output of a training process and is the application of a machine learning algorithm to training data. Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. "Managed" models have been registered with an Azure Machine Learning Model Management account. As an example, consider a scenario where you are trying to forecast sales. 
+
+During the experimentation phase, you generate many models by using different data sets or algorithms. You have generated four models with varying accuracies but choose to register only the model with the highest accuracy. The model that is registered becomes your first managed model.
+
+**What is a "deployment?"**
+
+Model Management allows you to deploy models as packaged web service containers in Azure. These web services can be invoked using REST APIs. Each web service is counted as a single deployment, and the total number of active deployments are counted towards your plan. 
+
+Using the sales forecasting example, when you deploy your best performing model, your plan is incremented by one deployment. If you then retrain and deploy another version, you have two deployments. If you determine that the newer model is better, and delete the original, your deployment count is decremented by one.
+
 **Azure Machine Learning model management uses the following information:**
 * Model file or a directory with the model files
 * User created Python file implementing a model scoring function
