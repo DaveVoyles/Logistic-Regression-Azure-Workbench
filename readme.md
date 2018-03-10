@@ -255,7 +255,7 @@ Deploy the model as a web service (locally, for tetsing):
 ```az ml service create realtime --model-file model.pkl -f score.py -n dvmodelmgmt -s  service_schema -r python -c ./aml_config/conda_dependencies.yml```
 
 
-We still need to deploy to production (Azure) though!
+We still need to deploy to production (Azure) though! Right now we can only call this from localhost. 
 
 
 You'll notice that I use the name *dvmodelmgmt* for both my app name **and** resource group. I do that to keep it simple. Alternatively, you could have done this all through the web portal. You'll see that it worked for me, as I now have a resource group titled *dvmodelmgmt*. There also one with the same name followed by random digits. I never quite understand why that gets created though.
