@@ -200,8 +200,15 @@ There's a lot going on here, so take a look at this image to get a feel for what
 
 3. [Deploy it as a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#4-register-a-model) (yellow)
     * This will create a *manifest*, *image*, and *service*.
+    
+    
+#### You can actually do all of this with one step
 
-You can do all of that with these commands:
+Deploy the model as a web service:
+
+```az ml service create realtime --model-file model.pkl -f score.py -n dvmodelmgmt -s  service_schema -r python -c ./aml_config/conda_dependencies.yml```
+
+Alternatively, if you wanted to do it piece-by-piece, here is how:
 
 #### Local deployment
 
@@ -242,6 +249,7 @@ You'll notice that I use the name *dvmodelmgmt* for both my app name **and** res
 If all of your commands went through, you should see this in the console:
 
 ![aml-workbench-web-deploy-success](https://www.dropbox.com/s/2py4lmd1pkpsdf9/aml-workbench-web-deploy-success.png?raw=1)
+
 
 
 # Resources
