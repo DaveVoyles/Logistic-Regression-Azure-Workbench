@@ -268,6 +268,10 @@ If all of your commands went through, you should see this in the console:
 ![aml-workbench-web-deploy-success](https://www.dropbox.com/s/2py4lmd1pkpsdf9/aml-workbench-web-deploy-success.png?raw=1)
 
 
+### How would you consume (or call) this endpoint now?
+
+Any application which can make a RESTful post call can use this. Whether it is a web app, deskptop app, or another ML script, you're going to want to call that endpoint (currently at the localhost address), and pass in a pandas dataframe, as we specified that type in the main() function from score.py.
+
 
 # Resources
 * [Operationalize your models with AML[VIDEO]](https://www.youtube.com/watch?v=hsU2rUYYc4o)
