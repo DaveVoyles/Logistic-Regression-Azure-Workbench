@@ -275,6 +275,8 @@ You can connect to a Machine Learning Web service using any programming language
 
 I prefer to keep it simple and use something like [postman](https://www.getpostman.com/) to make a simple API call.  Set the body to *raw*, and pass in the data like so:
 
+**TODO:** Replace this with example from linear regression. Right now I passed in dummy data from iris-classification as an example.
+
 ```{"input_df": [{"sepal length": 3.0, "petal width": 0.25, "sepal width": 3.6, "petal length": 1.3}]}```
 
 Detailed instructions on how to do that are in this documentation, [How to consume an Azure ML web serivce.](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services)
