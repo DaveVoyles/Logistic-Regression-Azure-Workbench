@@ -273,6 +273,8 @@ If all of your commands went through, you should see this in the console:
 
 Any application which can make a RESTful post call can use this. Whether it is a web app, deskptop app, or another ML script, you're going to want to call that endpoint (currently at the localhost address), and pass in a pandas dataframe, as we specified that type in the main() function from score.py.
 
+Instructions on how to do that are in this documentation, [How to consume an Azure ML web serivce.](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services)
+
 
 # Resources
 * [Operationalize your models with AML[VIDEO]](https://www.youtube.com/watch?v=hsU2rUYYc4o)
@@ -282,5 +284,6 @@ Any application which can make a RESTful post call can use this. Whether it is a
 * [Step-by-step instructions to deploy a model from ML workbench](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/#depl_link)
 * [VS Code extension - VS Code Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)
 * [What is Azure ML? - FAQ](https://docs.microsoft.com/en-us/azure/machine-learning/preview/frequently-asked-questions)
+[How to consume an Azure ML web serivce](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services)
 
 
