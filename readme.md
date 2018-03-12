@@ -271,9 +271,9 @@ If all of your commands went through, you should see this in the console:
 
 ### How would you consume (or call) this endpoint now?
 
-Any application which can make a RESTful post call can use this. Whether it is a web app, deskptop app, or another ML script, you're going to want to call that endpoint (currently at the localhost address), and pass in a pandas dataframe, as we specified that type in the main() function from score.py.
+You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response.  Whether it is a web app, deskptop app, or another ML script, you're going to want to call that endpoint (currently at the localhost address), and pass in a pandas dataframe, as we specified that type in the main() function from score.py. You'll also need to paas the API key from your model management account.
 
-Instructions on how to do that are in this documentation, [How to consume an Azure ML web serivce.](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services)
+Detailed instructions on how to do that are in this documentation, [How to consume an Azure ML web serivce.](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services)
 
 
 # Resources
