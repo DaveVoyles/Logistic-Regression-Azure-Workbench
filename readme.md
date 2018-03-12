@@ -273,6 +273,10 @@ If all of your commands went through, you should see this in the console:
 
 You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response.  Whether it is a web app, deskptop app, or another ML script, you're going to want to call that endpoint (currently at the localhost address), and pass in a pandas dataframe, as we specified that type in the main() function from score.py. You'll also need to paas the API key from your model management account.
 
+I prefer to keep it simple and use something like [postman](https://www.getpostman.com/) to make a simple API call.  Set the body to *raw*, and pass in the data like so:
+
+```{"input_df": [{"sepal length": 3.0, "petal width": 0.25, "sepal width": 3.6, "petal length": 1.3}]}```
+
 Detailed instructions on how to do that are in this documentation, [How to consume an Azure ML web serivce.](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services)
 
 
