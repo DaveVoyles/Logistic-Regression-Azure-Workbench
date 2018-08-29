@@ -59,6 +59,10 @@ The model.pkl, scoring file, and service_schema.json you'll need to create.
 
 That was my initial concern. When you start with the blank ML workbench project, you'll receive a folder marked *aml_config* with the config and compute dependencies you need to get a project working. The only thing you'll need to add to these are the specific libraries or dependencies your project will require. 
 
+## What does this look like?
+
+![model-mgmt-overview](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/media/model-management-overview/modelmanagement.png)
+
 
 ## Generating the schema 
 The [model management overview page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy#2-create-a-schemajson-file) is the best resource I've found for understanding how to generate the score and schema files. 
