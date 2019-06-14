@@ -1,4 +1,4 @@
-# Simple Linear Regression With Azure ML Workbench
+# Simple Logitic Regression With Azure ML Workbench
 
 #### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
 #### URL: [www.DaveVoyles.com](http://www.davevoyles.com)
