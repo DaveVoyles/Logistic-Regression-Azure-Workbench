@@ -1,9 +1,9 @@
-# Simple Logistic Regression With Azure ML Workbench
+# Simple Linear Regression With Azure ML Workbench
 
 #### Author(s): Dave Voyles | [@DaveVoyles](http://www.twitter.com/DaveVoyles)
 #### URL: [www.DaveVoyles.com](http://www.davevoyles.com)
 
-This sample creates a simple logistic regression model from [Scikit-Learn Boston dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html) and deploys to Azure as web service.
+This sample creates a simple linear regression model from [Scikit-Learn Boston dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html) and deploys to Azure as web service.
 ----------
 My goal with this was create a bare-bones example of how to deploy a model to Azure from ML Workbench. I couldnt find another example which did only that. 
 
@@ -278,8 +278,6 @@ If all of your commands went through, you should see this in the console:
 You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response.  Whether it is a web app, deskptop app, or another ML script, you're going to want to call that endpoint (currently at the localhost address), and pass in a pandas dataframe, as we specified that type in the main() function from score.py. You'll also need to paas the API key from your model management account.
 
 I prefer to keep it simple and use something like [postman](https://www.getpostman.com/) to make a simple API call.  Set the body to *raw*, and pass in the data like so:
-
-**TODO:** Replace this with example from linear regression. Right now I passed in dummy data from iris-classification as an example.
 
 ```{"input_df": [{"sepal length": 3.0, "petal width": 0.25, "sepal width": 3.6, "petal length": 1.3}]}```
 
